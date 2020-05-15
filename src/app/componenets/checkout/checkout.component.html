@@ -1,0 +1,107 @@
+
+	
+
+	<!--================Home Banner Area =================-->
+	<section class="banner_area">
+		<div class="banner_inner d-flex align-items-center">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="banner_content text-center">
+					<h2>{{'Product Checkout'|translate}}</h2>
+					<div class="page_link">
+						<a href="/">{{'Home'|translate}}}</a>
+						<span style="color: white;">{{'Checkout'|translate}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================End Home Banner Area =================-->
+
+	<!--================Checkout Area =================-->
+	<section class="checkout_area section_gap">
+		<div class="container">
+			<div class="returning_customer">
+				<div class="check_title">
+					
+				</div>
+				
+			</div>
+			<div class="cupon_area">
+				<div class="check_title">
+					
+				</div>
+				
+			</div>
+			<div class="billing_details">
+				<div class="row">
+					<div class="col-lg-8">
+				
+					</div>
+					<div class="col-lg-4">
+						<div class="order_box">
+							<h2>{{'Your Order'|translate}}</h2>
+							<ul class="list">
+								<li>
+									<a>{{'Product'|translate}}
+										<span>Total</span>
+									</a>
+								</li>
+								<li *ngFor="let p of myproducts">
+									<a >{{p.productName}}
+										<span class="middle">x {{p.userQuantity}}</span>
+										<span class="last">${{p.price*p.userQuantity}}</span>
+									</a>
+								</li>
+								
+							</ul>
+							<ul class="list list_2">
+								<li>
+									<a href="">{{'Subtotal'|translate}}
+										<span> ${{Price-Shipping}} </span>
+									</a>
+								</li>
+								<li>
+									<a>{{'Shipping'|translate}}
+										<span>Shipping: ${{Shipping}}</span>
+									</a>
+								</li>
+								<li>
+									<a >{{'Total'|translate}}
+										<span>${{Price}}</span>
+									</a>
+								</li>
+							</ul>
+							<div class="payment_item">
+								<div class="radion_btn">
+									<input type="radio" id="f-option5" name="selector">
+									<label for="f-option5">{{'Check payments'|translate}}</label>
+									<div class="check"></div>
+								</div>
+							</div>
+							<div class="payment_item active">
+								<div class="radion_btn">
+									<input type="radio" id="f-option6" name="selector">
+									<label for="f-option6">{{'Paypal'|translate}} </label>
+									<img src="../assets/img/product/single-product/card.jpg" alt="">
+									<div class="check"></div>
+								</div>
+							</div>
+							<div class="creat_account">
+								<input type="checkbox" id="f-option4" name="selector">
+								<label for="f-option4">I’ve read and accept the </label>
+								<a href="#">terms & conditions*</a>
+                            </div>
+                            <a class="main_btn"(click)="makeorder()">{{'Proceed to checkout'|translate}}</a>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================End Checkout Area =================-->
+
+
+
+	

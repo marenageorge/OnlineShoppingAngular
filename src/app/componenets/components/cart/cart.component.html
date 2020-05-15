@@ -1,0 +1,158 @@
+
+
+	<!--================Home Banner Area =================-->
+	<section class="banner_area">
+		<div class="banner_inner d-flex align-items-center">
+			<div class="container">
+				<div class="banner_content text-center">
+					<h2>{{'Shopping Cart'|translate}}</h2>
+					<div class="page_link">
+						<a href="/">{{'Home'|translate}}</a>
+						<a href="/cart">{{'Cart'|translate}}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================End Home Banner Area =================-->
+
+	<!--================Cart Area =================-->
+	<section class="cart_area">
+		<div class="container">
+			<div class="cart_inner">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">{{'Product'|translate}}</th>
+								<th scope="col">{{'Price'|translate}}</th>
+								<th scope="col">{{'Quantity'|translate}}</th>
+								<th scope="col">{{'Total'|translate}}</th>
+								<th scope="col"></th>
+							</tr>
+						</thead>
+						<tbody>
+					
+					
+							<tr *ngFor="let p of myproducts">
+								<td  >
+									<div class="media" >
+										<div class="d-flex">
+											<img [src]="createImgPath(p.url)" style="width:120px; height:140px" alt="">
+										</div>
+										<div class="media-body">
+											<p>{{p.productName}}</p>
+										</div>
+									</div>
+								</td>
+								<td >
+									<h5>${{p.price}}</h5>
+								</td>
+								<td>
+								<div class="product_count">
+						
+									<input  type="text"  [(ngModel)]="p.userQuantity" (change)="countPrice()">
+										<button  (click)="increase_quantity(p)"
+										 class="increase items-count" type="button">
+											<i class="lnr lnr-chevron-up"></i>
+										</button>
+										<button  (click)="decrease_quantity(p)"
+										 class="reduced items-count" type="button">
+											<i class="lnr lnr-chevron-down"></i>
+										</button>
+									</div> 
+								</td>
+								<td>
+									<h5>${{p.price*p.userQuantity}}</h5>
+								</td>
+								<td>
+							<button (click)="remove(p)">
+								<i class="fa fa-trash"></i>
+							</button>
+								</td>
+							</tr>
+							
+							<tr class="bottom_button">
+								<td>
+								</td>
+								<td>
+
+								</td>
+								<td>
+
+								</td>
+								<td >
+									<div class="cupon_text">
+										<input type="text" placeholder="Coupon Code" [(ngModel)]="couponid" >
+										<a class="main_btn" (click)="validateCoupon()">{{'Apply'|translate}}</a>
+										<!-- <a class="gray_btn" href="#">Close Coupon</a> -->
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+
+								</td>
+								<td>
+					
+								</td>
+								<td>
+									<h5>{{'Subtotal'|translate}}</h5>
+								</td>
+								<td>
+									<h5>${{Price}}</h5>
+								</td>
+							</tr>
+							<tr class="shipping_area">
+								<td>
+
+								</td>
+								<td>
+
+								</td>
+								<td>
+									<h5>{{'Shipping'|translate}}</h5>
+								</td>
+								<td>
+									
+											<div class="radio" class="row col-lg-12">
+												<label><input type="radio" name="optradio"  (click)="Shippingclick($event.target.value)" value="5" >{{'Flat Rate'|translate}}: $5.00</label>
+											</div>
+												<div class="radio">
+												<label><input type="radio" name="optradio"  (click)="Shippingclick($event.target.value)" value="0" checked>{{'Free Shipping'|translate}}</label>
+											</div>
+												<div class="radio">
+												<label><input type="radio" name="optradio"   (click)="Shippingclick($event.target.value)" value="10">{{'Flat Rate'|translate}}: $10.00</label>
+											</div>
+												<div class="radio">
+												<label><input type="radio" name="optradio" (click)="Shippingclick($event.target.value)" value="2">{{'Local Delivery'|translate}}: $2.00</label>
+											</div>
+											<div class="shipping_box">
+										
+									</div>
+								</td>
+							</tr>
+							<tr class="out_button_area">
+								<td>
+
+								</td>
+								<td>
+
+								</td>
+								<td>
+
+								</td>
+								<td>
+									<div class="checkout_btn_inner">
+										<a class="gray_btn" href="/products">{{'Continue Shopping'|translate}}</a>
+										<a class="main_btn" (click)="pay()">{{'Proceed to checkout'|translate}}</a>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+	

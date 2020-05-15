@@ -1,0 +1,48 @@
+
+
+<div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+            
+          
+          <th>{{'orderStaus'|translate}}</th>
+          <th>{{'TotalPrice'|translate}}</th>
+          <th>{{'OrderDate'|translate}}</th>
+          <th></th>
+     
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of orders">
+         
+         
+          <td [ngSwitch]="p.status">
+            <div *ngSwitchCase="2">
+           {{'Accepted'|translate}}
+        </div>
+      
+         <div *ngSwitchCase="3">
+          {{'Rejected'|translate}}
+        </div>
+      
+      
+        <div *ngSwitchCase="1">
+          {{'Pending'|translate}}
+        </div>
+      </td>
+          
+          <td >{{p.totalPrice}}</td>
+          <td>{{p.orderDate}}</td>
+          <ng-container *ngIf="p.status===1">
+          <td  >
+              <button name="btn" (click)="CancelOrder(p.id)">{{'CancelOrder'|translate}}</button>
+            </td>
+        </ng-container>
+        </tr>
+      
+      </tbody>
+      
+    </table>
+  </div>
+  

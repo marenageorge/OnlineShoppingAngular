@@ -1,0 +1,236 @@
+<section class="home_banner_area">
+  <div class="overlay"></div>
+  <div class="banner_inner d-flex align-items-center">
+    <div class="container">
+      <div class="banner_content row">
+        <div class="offset-lg-2 col-lg-8">
+          <h3>{{'Fashion for'|translate}}
+            <br />{{'Upcoming Winter'|translate}}</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+          <a class="white_bg_btn" href="#">View Collection</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="form-inline float-right mr-5 mt-5">
+  <input type="text" placeholder="{{'Search Here'|translate}}" [(ngModel)]="myproducts.productName">
+  <i class="fa  fa-search"></i>
+</div>
+
+
+
+<section class="feature_product_area section_gap">
+  <div class="container mt-3 mb-3">
+    <!-- Trigger the modal with a button -->
+    <button type="button" style="width: 100%;" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">{{"Create
+      Product"|translate}}</button>
+  
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+  
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <h2 class="text-center mb-2">{{"Create"|translate}}</h2>
+            <form [formGroup]="registerationForm" >
+              <div class="form-group row">
+                <label for="name" class="col-4">
+                  {{"Product Name"|translate}}
+                </label>
+                <input formControlName="name" type="text" id="name" class="col form-control">
+              </div>
+              <div class="form-group row">
+                <label for="description" class="col-4">
+                  {{"Product Description"|translate}}
+                </label>
+                <input formControlName="description" type="text" id="description" class="col form-control">
+              </div>
+              <div class="form-group row">
+                <label for="price" class="col-4">
+                  {{"Price"|translate}}
+                </label>
+                <input type="text" formControlName="price" id="price" class="col form-control">
+              </div>
+              <div class="form-group row">
+                <label for="Quantity" class="col-4">
+                 {{" Quantity"|translate}}
+                </label>
+                <input type="text" formControlName="Quantity" id="Quantity" class="col form-control">
+              </div>
+  
+              <div class="form-group row">
+                <label for="image" class="col-4">
+                  {{"Image"|translate}}
+                </label>
+                <input type="file" accept="image/*" #file (change)="handlefileinput($event.target.files)" id="Url">
+                <br>
+                <img [src]="imageurl" style="width: 25px; height: 30px;">
+  
+              </div>
+              <div class="alert alert-danger" *ngIf="!priceStatus">
+                min 18 and max 10000
+              </div>
+              <div class="alert alert-danger" *ngIf="!nameStatus">
+                name is required
+              </div>
+              <div class="alert alert-danger" *ngIf="!descriptionStatus">
+                description is required
+              </div>
+              <div class="form-group row justify-content-center">
+                <input type="submit" value="add" class="btn btn-success" data-dismiss="modal" (click) = "CreatePost()">
+              </div>
+            </form>
+  
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  
+  </div>
+  <div class="container">
+    <div class="modal fade" id="myModalEdit" role="dialog">
+      <div class="modal-dialog">
+  
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <!-- <h4 class="modal-title">Modal Header</h4> -->
+          </div>
+          <div class="modal-body">
+            <h2 class="text-center mb-2">{{"Edit"|translate}}</h2>
+            <form [formGroup]="EditForm" >
+              <div class="form-group row">
+                <label for="name" class="col-4">
+                  {{"Product Name"|translate}}
+                </label>
+                <input formControlName="name" type="text" id="name" class="col form-control">
+              </div>
+              <div class="form-group row">
+                <label for="description" class="col-4">
+                  {{"Product Description"|translate}}
+                </label>
+                <input formControlName="description" type="text" id="description" class="col form-control">
+              </div>
+              <div class="form-group row">
+                <label for="price" class="col-4">
+                  {{"Price"|translate}}
+                </label>
+                <input type="text" formControlName="price" id="price" class="col form-control">
+              </div>
+              <div class="form-group row">
+                <label for="Quantity" class="col-4">
+                  {{"Quantity"|translate}}
+                </label>
+                <input type="text" formControlName="Quantity" id="Quantity" class="col form-control">
+              </div>
+  
+              <div class="form-group row">
+                <label for="image" class="col-4">
+                  {{"Image"|translate}}
+                </label>
+                <input type="file" accept="image/*" #file (change)="handlefileinput($event.target.files)" id="Url">
+                <br>
+                <img [src]="imageurl" style="width: 25px; height: 30px;">
+  
+              </div>
+              <div class="alert alert-danger" *ngIf="!priceStatusedit">
+                min 18 and max 10000
+              </div>
+              <div class="alert alert-danger" *ngIf="!nameStatusedit">
+                name is required
+              </div>
+              <div class="alert alert-danger" *ngIf="!descriptionStatusedit">
+                description is required
+              </div>
+              <div class="form-group row justify-content-center">
+                <input type="submit" value="add" class="btn btn-success" data-dismiss="modal" (click)="Updated()">
+              </div>
+            </form>
+  
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  <div class="main_box">
+    
+    <div class="container-fluid">
+      <div class="row">
+        <div class="main_title">
+          <h2>{{"Featured Products" |translate}}</h2>
+        </div>
+      </div>
+      <div class="row" >
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 mt-3 " *ngFor="let p of myproducts| filter:myproducts.productName">
+          <div class="f_p_item">
+            <div class="f_p_img">
+              <img class="img-fluid" style="height: 300px;" [src]="createImgPath(p.url)" alt="">
+              <!-- <div class="p_icon">
+                <a class="btn cart px-auto"(click)="addTocart(p)">
+                  <i class="lnr lnr-cart"></i>
+              </a>
+             
+              </div> -->
+            </div>
+            <a [routerLink]="['/productdetail', p.id]" >
+              <h4>{{p.productName}}</h4>
+            </a>
+            <h5>${{p.price}}</h5>
+          </div>
+          <button #btnDelete (click)="Delete(p)"  class="btn btn-danger cart px-auto" style="width: 100%;">{{'Delete'|translate}}</button>
+          <button #editBtn type="button" style="width: 100%;margin-top: 10px;" class="btn btn-primary px-auto" data-toggle="modal" data-target="#myModalEdit" id="Editbtn" on-click="Edit(p)" [value]="p.id">{{"Edit"|translate}}</button>
+      
+        </div>
+       
+      </div>
+      
+
+      <!-- <div class="row">
+        <nav class="cat_page mx-auto" aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="#">
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#">01</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">02</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">03</a>
+            </li>
+            <li class="page-item blank">
+              <a class="page-link" href="#">...</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">09</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div> -->
+      
+    </div>
+    
+  </div>
+</section>

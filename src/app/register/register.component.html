@@ -1,0 +1,101 @@
+
+
+	<!--================Home Banner Area =================-->
+	<section class="banner_area">
+		<div class="banner_inner d-flex align-items-center">
+			<div class="container">
+				<div class="banner_content text-center">
+					<h2>{{'Login/Register'|translate}}</h2>
+					<div class="page_link">
+						<a href="/">{{'Home'|translate}}</a>
+						<a href="/register">{{'Register'|translate}}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================End Home Banner Area =================-->
+
+	<!--================Login Box Area =================-->
+	<section class="login_box_area p_120">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="login_box_img">
+						<img class="img-fluid" src="../assets/img/login.jpg" alt="">
+						<div class="hover">
+							<h4>{{'New to our website?'|translate}}</h4>
+							<p>{{'There are advances being made in science and technology everyday, and a good example of this is the'|translate}}</p>
+							<a class="main_btn" href="#">{{'Create an Account'|translate}}</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="login_form_inner reg_form">
+						<h3>{{'Create an Account'|translate}}</h3>
+						<form class="row login_form"  [formGroup]="registerationForm" (ngSubmit)="Register()">
+							<div class="col-md-12 form-group">
+                <input  formControlName="FirstName" type="text" id="FirstName" class=" form-control" placeholder="{{'FirstName'|translate}}">
+							</div>
+							<div class="col-md-12 form-group alert alert-danger" *ngIf="!FirstNameStatus">
+              
+                  {{'FirstName is required'|translate}}
+                  </div>
+                  <div class="col-md-12 form-group">
+                    <input formControlName="LastName"  type="text" id="FirstName" class=" form-control" placeholder="{{'LastName'|translate}}">
+                  </div>
+                  <div class="col-md-12 form-group alert alert-danger" *ngIf="!LastNameStatus">
+                  
+                     {{'LastName is required'|translate}}
+                      </div>
+                      <div class="col-md-12 form-group-inline" >
+                        {{'Male'|translate}} <input type="radio" value="male" formControlName="gender" > 
+                        {{'Female'|translate}}<input type="radio" value="female" formControlName="gender" >                  
+                           </div>
+                           <div class="col-md-12 form-group alert alert-danger"  *ngIf="!genderStatus">
+                  
+                            {{'gender is required'|translate}}
+                             </div>
+                             <div class="col-md-12 form-group">
+                              <input type="text" formControlName="email" class="form-control" placeholder="{{'Email'|translate}}">
+                            </div>
+                            <div class="col-md-12 form-group alert alert-danger"  *ngIf="!emailStatus">
+                  
+                            {{'Invaid Email'|translate}}
+                               </div>
+							<div class="col-md-12 form-group">
+								<input type="password" formControlName="password" class="form-control"  placeholder="{{'Password'|translate}}">
+              </div>
+              <div class="col-md-12 form-group alert alert-danger"  *ngIf="!passStatus">
+        
+              {{'password must contain at least 1 Upper letter, 1 Special character  and 1 number'|translate}}
+            </div>
+            <div class="col-md-12 form-group">
+              <i class="fa fa-picture-o">
+              <input type="file"  accept="image/*" #file
+              (change)="handlefileinput($event.target.files)" id="Url" class="form-control">
+            </i>
+              <br>
+             <img [src]="imageurl" style="width: 25px; height: 30px;" >
+            </div>
+            <div class="col-md-12 form-group alert alert-success"  *ngIf="controlsvalid">
+      
+           {{'Your Data is valid Press Register'|translate}}
+          </div>
+						
+							<div class="col-md-12 form-group">
+								<div class="creat_account">
+									<input type="checkbox" id="f-option2" name="selector">
+									<label for="f-option2">{{'Keep me logged in'|translate}}</label>
+								</div>
+							</div>
+							<div class="col-md-12 form-group">
+								<button type="submit"  class="btn submit_btn" [disabled]="!controlsvalid">{{'Register'|translate}}</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================End Login Box Area =================-->

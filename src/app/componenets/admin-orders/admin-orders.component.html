@@ -1,0 +1,80 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<section class="home_banner_area">
+  <div class="overlay"></div>
+  <div class="banner_inner d-flex align-items-center">
+    <div class="container">
+      <div class="banner_content row">
+        <div class="offset-lg-2 col-lg-8">
+          <h3>{{'Fashion for'|translate}}
+            <br />{{'Upcoming Winter'|translate}}</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+          <a class="white_bg_btn" href="#">View Collection</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+          
+        
+        <th>{{"User Name"| translate}}</th>
+        <th>{{"Total Price"| translate}}</th>
+        <th>{{"Order Date"| translate}}</th>
+        <th>{{"Product Name"| translate}}</th>
+        <th>{{"Status"| translate}}</th>
+
+   
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of MyOrders ">
+        <td>{{order.userName}}</td>
+        <td > {{order.totalPrice}}</td>
+        <td>{{order.orderDate}}</td>
+        <td>{{order.productName}}</td>
+
+        <td [ngSwitch]="order.status">
+          <div *ngSwitchCase="2">
+            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+              <button class="btn btn-outline-success" ngbDropdownToggle>Accepted</button>
+              <div #dropdown class="dropdown-menu" ngbDropdownMenu>
+                <button class="dropdown-item" *ngFor="let sortOrder of options" (click)="ChangeSortOrder(sortOrder,order)" >{{sortOrder}}</button>
+              </div>
+            </div>
+      </div>
+    
+       <div *ngSwitchCase="3">
+         <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+            <button class="btn btn-outline-danger" ngbDropdownToggle>Rejected</button>
+            <div #dropdown class="dropdown-menu" ngbDropdownMenu>
+              <button class="dropdown-item" *ngFor="let sortOrder of options" (click)="ChangeSortOrder(sortOrder,order)" >{{sortOrder}}</button>
+            </div>
+          </div>
+      </div>
+    
+    
+      <div *ngSwitchDefault>
+        <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+          <button class="btn btn-outline-secondary" ngbDropdownToggle>Pending</button>
+          <div #dropdown class="dropdown-menu" ngbDropdownMenu>
+            <button class="dropdown-item" *ngFor="let sortOrder of options" (click)="ChangeSortOrder(sortOrder,order)" >{{sortOrder}}</button>
+          </div>
+        </div>
+      </div>
+    </td>
+        
+    
+       
+      </tr>
+    
+    </tbody>
+    
+  </table>
+</div>

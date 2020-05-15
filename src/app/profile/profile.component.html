@@ -1,0 +1,146 @@
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container emp-profile">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img [src]="createImgPath(userdata.url)" alt=""/>
+                            <div class="file btn btn-lg btn-primary">
+                              {{'Change Photo'|translate}}
+                               
+                                <input type="file"  accept="image/*" #file
+                                (change)="handlefileinput($event.target.files)" id="Url" [(ngModel)]="userdata.url">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>
+                                      {{userdata.userName}}
+                                    </h5>
+                                   
+                            <ul class="nav nav-tabs profilediv" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">{{'ABOUT'|translate}}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">{{'Orders'|translate}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                      <a href="#" class="profile-edit-btn" data-toggle="modal" data-target="#update">{{'Edit Info'|translate}}</a><br /> 
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                       
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>{{'FirstName'|translate}}</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>  {{userdata.firstname}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>{{'LastName'|translate}}</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>  {{userdata.lastname}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>{{'Email'|translate}}</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{userdata.email}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>{{'Gender'|translate}}</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{userdata.gender}}</p>
+                                            </div>
+                                        </div>
+                                        
+                            </div>
+                            <div class="tab-pane fade"  id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                        <div class="row" >
+                                          <app-orders-view></app-orders-view>
+                                          </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>
+        <!-- <!>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> modal edit pop up--> 
+        <div class="modal fade" id="update" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" style="text-align: center;" id="staticBackdropLabel">{{'Edit Info'|translate}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <form [formGroup]="registerationForm" >
+                      <div class="form-group row">
+                          <label for="FirstName" class="col-4">
+                            FirstName
+                          </label>
+                          <input  formControlName="FirstName" type="text"   class="col form-control" [(ngModel)]="userdata.firstname" >
+                      </div>
+                      <div class="alert alert-danger" *ngIf="!FirstNameStatus">
+                        FirstName is required
+                    </div>
+                    <div class="form-group row">
+                      <label for="LastName" class="col-4">
+                        LastName
+                      </label>
+                      <input  formControlName="LastName" type="text" class="col form-control"[(ngModel)]="userdata.lastname">
+                  </div>
+                  <div class="alert alert-danger" *ngIf="!LastNameStatus">
+                    LastName is required
+                </div>
+                <div class="form-group row">
+                  <label for="gender" class="col-4">
+                    {{'Gender'|translate}}
+                  </label>
+                  <input type="radio" value="male" formControlName="gender" [(ngModel)]="userdata.gender" > Male
+                  <input type="radio" value="female" formControlName="gender" [(ngModel)]="userdata.gender" style="margin-left:10px"> Female
+                     </div>
+              <div class="alert alert-danger" *ngIf="!genderStatus">
+             {{'Gender is Required'|translate}}
+            </div>
+                     
+                    
+            
+                   
+                      <div class="form-group row justify-content-center">
+                          <button value="update" (click)="Register()" data-dismiss="modal"  class="btn btn-success" [disabled]="!controlsvalid" >{{'Update'|translate}}</button>
+                      </div>
+                  </form>
+                 </div>
+             
+            </div>
+          </div>
+        </div>
+        
+        
+        
+        
