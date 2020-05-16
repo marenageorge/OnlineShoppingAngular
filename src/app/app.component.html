@@ -40,7 +40,7 @@
 		</div>
 		<ng-container *ngIf= "isadmin === false;else second">
 		<div class="main_menu" >
-			<nav class="navbar navbar-expand-lg navbar-light">
+			<nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-light">
 				<div class="container-fluid">
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<a class="navbar-brand logo_h" href="#">
@@ -61,21 +61,19 @@
 										<a class="nav-link"  routerLink="" >{{'HOME'|translate}}</a>
 									</li>
 									
-									<li class="nav-item submenu dropdown">
-										<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{'SHOP'|translate}}</a>
-										<ul class="dropdown-menu" >
+									
 											<li class="nav-item">
-												<a class="nav-link" (click)="gotoproducts()">{{'Shop Products'|translate}}</a>
 												
+												<a class="nav-link" (click)="gotoproducts()">{{'Shop Products'|translate}}</a>
+											</li>
 													<li class="nav-item">
 														<a class="nav-link" (click)="checkout()">{{'Product Checkout'|translate}}</a>
+													</li>
 														<li class="nav-item">
 															<a class="nav-link" (click)="gocart()">{{'Shopping Cart'|translate}}</a>
 														</li>
 														
-													
-										</ul>
-									</li>
+										
 									
 									<li class="nav-item ">
 										<a class="nav-link"  routerLink="about">{{'ABOUT'|translate}}</a>
@@ -137,7 +135,7 @@
 	</ng-container>
 	<ng-template #second>
 		<div class="main_menu">
-			<nav class="navbar navbar-expand-lg navbar-light">
+			<nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-light">
 				<div class="container-fluid">
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<a class="navbar-brand logo_h" href="#">
@@ -158,20 +156,17 @@
 										<a class="nav-link"  routerLink="" >{{'HOME'|translate}}</a>
 									</li>
 									
-									<li class="nav-item submenu dropdown">
-										<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{'SHOP'|translate}}</a>
-										<ul class="dropdown-menu">
-											<li class="nav-item">
+	
+									
 												
 													<li class="nav-item">
 														<a class="nav-link" (click)="adminprod()">{{'Products'|translate}}</a>
+														</li>
 														<li class="nav-item">
 															<a class="nav-link" (click)="adminorder()">{{'Orders'|translate}}</a>
 														</li>
 														
-													
-										</ul>
-									</li>
+										
 									
 									<li class="nav-item ">
 										<a class="nav-link"  routerLink="about">{{'ABOUT'|translate}}</a>

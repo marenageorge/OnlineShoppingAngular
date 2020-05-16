@@ -27,14 +27,14 @@
         </div>
       
       
-        <div *ngSwitchCase="1">
+        <div *ngSwitchCase="0">
           {{'Pending'|translate}}
         </div>
       </td>
           
           <td >{{p.totalPrice}}</td>
           <td>{{p.orderDate}}</td>
-          <ng-container *ngIf="p.status===1">
+          <ng-container *ngIf="p.status===0">
           <td  >
               <button name="btn" (click)="CancelOrder(p.id)">{{'CancelOrder'|translate}}</button>
             </td>

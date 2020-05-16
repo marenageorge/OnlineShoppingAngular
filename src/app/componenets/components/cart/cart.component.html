@@ -115,7 +115,7 @@
 								</td>
 								<td>
 									
-											<div class="radio" class="row col-lg-12">
+											<div class="radio" class="row  ">
 												<label><input type="radio" name="optradio"  (click)="Shippingclick($event.target.value)" value="5" >{{'Flat Rate'|translate}}: $5.00</label>
 											</div>
 												<div class="radio">
@@ -143,10 +143,10 @@
 
 								</td>
 								<td>
-									<div class="checkout_btn_inner">
-										<a class="gray_btn" href="/products">{{'Continue Shopping'|translate}}</a>
-										<a class="main_btn" (click)="pay()">{{'Proceed to checkout'|translate}}</a>
-									</div>
+									
+										<a class="main_btn" href="/products">{{'Continue Shopping'|translate}}</a>
+										<a class="main_btn mt-3"  (click)="pay()">{{'Proceed to checkout'|translate}}</a>
+									
 								</td>
 							</tr>
 						</tbody>

@@ -4,7 +4,7 @@
 <div class="container emp-profile">
             <form method="post">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class=" col-sm-8 col-md-4 mt-4">
                         <div class="profile-img">
                             <img [src]="createImgPath(userdata.url)" alt=""/>
                             <div class="file btn btn-lg btn-primary">
@@ -15,7 +15,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-5 col-xs-10">
                         <div class="profile-head">
                                     <h5>
                                       {{userdata.userName}}
@@ -31,46 +31,46 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 col-sm-4">
                       <a href="#" class="profile-edit-btn" data-toggle="modal" data-target="#update">{{'Edit Info'|translate}}</a><br /> 
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 ">
                        
                     </div>
                     <div class="col-md-8">
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 col-sm-7">
                                                 <label>{{'FirstName'|translate}}</label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 col-sm-7">
                                                 <p>  {{userdata.firstname}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 col-sm-7">
                                                 <label>{{'LastName'|translate}}</label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 col-sm-7">
                                                 <p>  {{userdata.lastname}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 col-sm-7">
                                                 <label>{{'Email'|translate}}</label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 col-sm-7">
                                                 <p>{{userdata.email}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 col-sm-7">
                                                 <label>{{'Gender'|translate}}</label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 col-sm-7">
                                                 <p>{{userdata.gender}}</p>
                                             </div>
                                         </div>
@@ -100,7 +100,7 @@
               <div class="modal-body">
                   <form [formGroup]="registerationForm" >
                       <div class="form-group row">
-                          <label for="FirstName" class="col-4">
+                          <label for="FirstName" class="col-4 ">
                             FirstName
                           </label>
                           <input  formControlName="FirstName" type="text"   class="col form-control" [(ngModel)]="userdata.firstname" >

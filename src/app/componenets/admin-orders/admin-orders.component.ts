@@ -49,7 +49,7 @@ export class AdminOrdersComponent implements OnInit {
      else if(newSortOrder == "Rejected")
      order.status = 3;
      else
-     order.status = 1;
+     order.status = 0;
 
 
       this.productservice.EditOrdersStatus(order.id, order).subscribe((res) => {
